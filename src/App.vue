@@ -13,4 +13,9 @@
   background: #03051C;
   color: #F8F48A;
 }
+
+body {
+  margin: 0px;
+  overflow: hidden;
+}
 </style>

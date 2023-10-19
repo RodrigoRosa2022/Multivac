@@ -1,7 +1,6 @@
 <template>
 <div class="screen">
-  <img src="@/assets/terminalzoom.jpg" alt="Screen Frame" width="400" class="terminal-image">
-  <p>teste</p>
+  <p contenteditable="true" @input="keyPress()">teeste</p>
   <input type="text" class="input" @input="keyPress()">
 </div>
 </template>
@@ -10,6 +9,7 @@
 export default {
   methods: {
     keyPress() {
+      
       console.log("Key Pressed")
     }
   }
@@ -19,6 +19,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .screen {
+  padding-top: 10px;
+  padding-left: 80px;
   border: 3px solid white;
   border-radius: 20px;
   background: black;
@@ -34,5 +36,6 @@ export default {
 .input {
   height: 50px;
   width: 50px;
+  box-decoration-break: none;
 }
 </style>
