@@ -1,13 +1,10 @@
 <template>
   <div class="backdrop" @click.self="closeModal">
 
-    <div class="modal">
-      
+    <div class="modal" v-if="!submited">      
       <SignupForm />
-
-
-
     </div>
+
   </div>
 </template>
 
@@ -18,6 +15,7 @@ export default {
   props: [],
   data() {
     return {
+      submited: false,
       user: '',
       password: '',
       terms: false

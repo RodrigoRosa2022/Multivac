@@ -2,11 +2,7 @@
   <div v-if="showModal">
     <Modal :header="header" :text="text" @close="UserModal" />
   </div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Instructions</a>
-    <a href="#">About</a>
-  </nav>
+  <NavBar />
   <div class="home">
     <div class="logo">
       <h1>The Multivac</h1>
@@ -15,21 +11,21 @@
       <img src="../assets/multivac.jpg" alt="Multivac Terminal" height="400">
       <button @click="UserModal">Play</button>
     </div>
-      <!-- <Terminal /> -->
   </div>
-  <footer>
-    <p>Coded with sweat, blood and tears.<br>Original Website by Rodrigo Rosa</p>
-  </footer>
+  <Footer />
 </template>
 
 <script>
 import Terminal from '@/components/Terminal.vue'
 import Modal from '@/components/Modal.vue'
+import NavBar from '@/components/NavBar.vue'
+import Footer from '@/components/Footer.vue'
+
 
 export default {
   name: 'HomeView',
   components: {
-    Terminal,Modal
+    Terminal,Modal,NavBar, Footer
   },
   data() {
     return {
@@ -47,15 +43,7 @@ export default {
 </script>
 
 <style scoped>
-nav {
-  padding: 10px;
-}
-nav a {
-  margin: 10px;
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
-}
+
 .home {
   gap: 16px;
   height: 80%;
@@ -104,12 +92,6 @@ button {
 button:hover{
   background-color: black;
   color:#F8F48A
-}
-
-
-footer {
-  color: white;
-  margin-top: 40px;
 }
 
 </style>
