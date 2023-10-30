@@ -1,29 +1,85 @@
 <template>
-      <form action="play">
+      <form @submit.prevent="checkForm">
         <label>Certified Multivac Navigator</label>
-        <input type="text" required placeholder="User Name">
+        <input type="text" required placeholder="User Name" v-model="navigator">
         
         <label>Password</label>
         <input type="password" required v-model="password" placeholder="Password">
 
         <div class="terms">
           <input type="checkbox" v-model="terms" required>
-          <label>Accept terms and conditions</label>
+          <label>Endorse Quantum Era Covenants</label>
 
         </div>
-        <button type="submit">Require Access</button>
+
+        <div v-if="!submitted"> 
+          <button type="submit">Require Access</button>
+        </div>
+        <div v-if="passwordApproved" class="enterButton">
+<router-link :to="this.navigator">
+  <button class="approvedButton">Enter Multivac Room</button>
+</router-link>
+        </div>
+
+        <div v-if="loading" class="loading">           
+          <LoadingSymbol />
+        </div>
         
-        <p>*Remember, keep it classy when you talk to The Multivac; it appreciates your elegance. </p>
+        <div v-if="loading || passwordApproved">
+          <p>*Remember, keep it classy when you talk to The Multivac; it appreciates your elegance. </p>
+        </div>
+
+        <div v-if="passwordDennied">
+          <p>You are not allowed to interact with Multivac.</p>
+        </div>
 
       </form>
   
 </template>
 
 <script>
-export default {  
-  
-  name: 'SignupForm',
+import LoadingSymbol from './LoadingSymbol.vue';
+export default {
+  components: { LoadingSymbol },
+  data() {
+    return {
+      password: '',
+      navigator: '',
+      terms: false,
+      passwordApproved: false,
+      submitted: false,
+      loading: false,
+      passwordDennied: false
+    };
+  },
+  methods: {
+    checkForm() {
+      console.log("navigator:", this.navigator)
+      console.log("password:", this.password)
+      console.log("terms:", this.terms)
+      this.submitted = true
+      this.loading = true
+      this.passwordDennied= false
 
+
+
+       if (this.password.startsWith("kk")) {
+        setTimeout(() => {
+          this.passwordApproved = true
+          console.log("Password starts with 'kk'. Proceed with form submission.")
+          this.loading = false
+        }, 2000); 
+      } else {
+          setTimeout(() => {
+            this.submitted = false
+            console.log("Password does not start with 'kk'.")
+            this.loading = false
+            this.passwordDennied = true
+          }, 2000)
+        }
+
+    }
+  }
 }
 </script>
 
@@ -83,5 +139,22 @@ p {
   color: black;
 }
 
+.loading {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enterButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.approvedButton {
+  font-size: 30px;
+  background-color: black;
+  color: #F8F48A;
+}
 
 </style>

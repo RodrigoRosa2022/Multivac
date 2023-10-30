@@ -38,4 +38,8 @@ export default {
   width: 50px;
   box-decoration-break: none;
 }
+
+p {
+  color:white;
+}
 </style>
