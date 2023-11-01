@@ -7,7 +7,7 @@
     </div>
     <div class="main">
       <img src="../assets/multivac.jpg" alt="Multivac Terminal" height="400">
-      <Terminal />
+      <Terminal :user="$route.params.navigator"  />
     </div>
   </div>
   <Footer />
@@ -17,6 +17,7 @@
 import Terminal from '@/components/Terminal.vue'
 import NavBar from '@/components/NavBar.vue'
 import Footer from '@/components/Footer.vue'
+
 
 
 export default {
