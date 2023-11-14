@@ -4,7 +4,13 @@
       <label>
         <p>&lt;{{ user }}&gt; {{ fakeText }}</p>
         <input type="text" v-model="typedText"  autofocus @input="keyPress(typedText)" @keyup.enter="enterPressed(typedText)">
-        <p v-if="isTypingEnded">&lt;Multivac&gt; {{ mvAnswer }}</p>
+        <div v-if="isTypingEnded">
+          <p>&lt;Multivac&gt; {{ mvAnswer }}</p>
+          <div>
+            <router-link to="/"><button>Leave the room</button></router-link>      
+            <button v-if="!isWrongAnswer" @click="resetTerminal">New Question</button>
+          </div>
+        </div>
       </label>
     </div>
   </div>
@@ -47,7 +53,8 @@ export default {
       }
 
       if (typedCount == 2) {
-        if(typedText == "kk") {
+        if(typedText == "kk") {                  
+          this.isWrongAnswer = false
           console.log("está com kk. bom.")
         }
 
@@ -75,11 +82,11 @@ export default {
         if (this.isAnswerSaved == true) {                 
           this.fakeText = this.typedText
         }
-      }
+      } 
 
 
     },
-    enterPressed() {
+    enterPressed(typedText) {
       console.log("enterPRessed")      
       let typedCount = typedText.length
 
@@ -88,33 +95,31 @@ export default {
       }
 
       if (this.isWrongAnswer) {
-        this.isTypingEnded = true
-        this.mvAnswer = "ERROR MESSAGE: You didn't take your certifyed terminator navigator course seriouslly. Leave the Multivac room imediatelly"
-      }
+        setTimeout(() => {
+          this.isTypingEnded = true
+          this.mvAnswer = "ERROR MESSAGE: You didn't take your certifyed terminator navigator course seriouslly. Leave the Multivac room imediatelly"
+        }, 400); 
+        }
 
       if (this.isAnswerSaved) {
-        // encerrar input. dar um tempo e inserir MV responde.
-
+        setTimeout(() => {
+          this.mvAnswer = this.realAnswer
+          this.isTypingEnded = true
+        }, 1500); 
       }
 
-      if (typedText.slice(-2) == "kk" && this.isAnswerSaved == false)
-      
-      
-
-
-
-      if (this.typingStatus == "no introduction") {
-        this.isTypingEnded = true
-        this.mvAnswer = "ERROR MESSAGE: You didn't take your certifyed terminator navigator course seriouslly. Leave the Multivac room imediatelly"
+      if (!this.isAnswerSaved && !this.isWrongAnswer) {
+        this.typedText = this.typedText + 'kk'
+        this.keyPress(this.typedText)
       }
-      else {
-        if (this.typingStatus == "typing answer") {
-          console.log("works fine")
-          this.typedText = this.typedText.concat("kk")
-          console.log(this.typedText)
-        }
-        else {console.log(this.typingStatus)}
-      }
+
+    },
+
+    resetTerminal() {
+      location.reload(true);
+      this.isWrongAnswer= false
+      this.isAnswerSaved= false
+      this.isTypingEnded= false
     }
   },
   mounted() {
@@ -160,10 +165,11 @@ export default {
   border-radius: 30px;
 }
 
-.input {
-  height: 50px;
-  width: 50px;
+input {
+  height: 1px;
+  width: 1px;
   box-decoration-break: none;
+  opacity: 0;
 }
 
 p {
