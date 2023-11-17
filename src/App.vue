@@ -12,10 +12,23 @@
   -moz-osx-font-smoothing: grayscale;
   background: #03051C;
   color: #F8F48A;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
 }
 
 body {
   margin: 0px;
+
+  height: 100%;
+
   /* overflow: hidden; */
+}
+
+html {
+
+  height: 100%;
+
 }
 </style>

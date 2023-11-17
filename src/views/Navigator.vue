@@ -1,12 +1,12 @@
  <template>
   <NavBar />
-  <p>The navigator name is: {{$route.params.navigator}}</p>
-  <div class="home">
+  <!-- <p>The navigator name is: {{$route.params.navigator}}</p> -->
+  <div class="homeNavigator">
     <div class="logo">
       <h1>The Multivac</h1>
     </div>
-    <div class="main">
-      <img src="../assets/multivac.jpg" alt="Multivac Terminal" height="400">
+    <div class="mainNavigator">
+      <img src="../assets/multivac.jpg" alt="Multivac Terminal" class="imageNavigator">
       <Terminal :user="$route.params.navigator"  />
     </div>
   </div>
@@ -38,7 +38,7 @@ export default {
 
 <style scoped>
 
-.home {
+.homeNavigator {
   gap: 16px;
   height: 80%;
 }
@@ -54,9 +54,7 @@ p {
 }
 
 .logo {
-  border-right: 1px solid;
   width: 100%;
-  height: 100%;
   text-align: center;
 }
 
@@ -65,14 +63,15 @@ p {
   text-align: center;
 }
 
-.logo img {
-  display: block;
+img.imageNavigator {
+  /* display: block; */
   margin-left: auto;
   margin-right: auto;
-  height: 400px;
+  width: 30%;
+  height: 5%;
 }
 
-.main {
+.mainNavigator {
   display: flex;
   flex-direction: row;
 }

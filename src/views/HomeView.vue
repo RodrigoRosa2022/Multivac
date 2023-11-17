@@ -44,8 +44,11 @@ export default {
 
 <style scoped>
 
+
+
 .home {
   gap: 16px;
+  flex-grow: 1;
   height: 80%;
 }
 
@@ -60,7 +63,6 @@ p {
 }
 
 .logo {
-  border-right: 1px solid;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -75,7 +77,7 @@ p {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 400px;
+  height: 72%;
 }
 
 button {

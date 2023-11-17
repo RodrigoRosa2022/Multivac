@@ -1,9 +1,9 @@
 <template>
-  <div class="screen">
+  <label class="screen" for="typer">
     <div id="term">
-      <label>
-        <p>&lt;{{ user }}&gt; {{ fakeText }}</p>
-        <input type="text" v-model="typedText"  autofocus @input="keyPress(typedText)" @keyup.enter="enterPressed(typedText)">
+      <!-- <label> -->
+        <p class="userTyping">&lt;{{ user }}&gt; {{ fakeText }}</p>
+        <input type="text" id="typer" v-model="typedText"  autofocus @input="keyPress(typedText)" @keyup.enter="enterPressed(typedText)">
         <div v-if="isTypingEnded">
           <p>&lt;Multivac&gt; {{ mvAnswer }}</p>
           <div>
@@ -11,9 +11,9 @@
             <button v-if="!isWrongAnswer" @click="resetTerminal">New Question</button>
           </div>
         </div>
-      </label>
+      <!-- </label> -->
     </div>
-  </div>
+  </label>
 </template>
 
 <script>
@@ -152,17 +152,20 @@ export default {
 <style scoped>
 .screen {
   padding-top: 10px;
-  padding-left: 80px;
+  padding-left: 20px;
   border: 3px solid white;
   border-radius: 20px;
   background: black;
   margin: 40px;
   width: 100%;
+  height: 260px;
   box-shadow: 0 0 10px black;
 }
 
-.terminal-image {
-  border-radius: 30px;
+#term {
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
 }
 
 input {
@@ -178,14 +181,11 @@ p {
   width: 80%;
 }
 
-p::after {
+p.userTyping::after {
   content: '|'; /* Display a vertical bar as the cursor */
   position: absolute;
   animation: blinkCursor 1s step-start infinite; /* Blinking animation */
   opacity: 0;
-  /* Show cursor only when showCursor is true */
-  opacity: 1;
-  animation: blinkCursor 1s step-start infinite;
 }
 
 @keyframes blinkCursor {

@@ -1,14 +1,21 @@
 <template>
       <form @submit.prevent="checkForm">
-        <label>Certified Multivac Navigator</label>
-        <input type="text" required placeholder="User Name" v-model="navigator">
+        <label>
+          <p>Certified Multivac Navigator</p>
+          <input type="text" required placeholder="User Name" v-model="navigator">
+        </label>
         
-        <label>Password</label>
-        <input type="password" required v-model="password" placeholder="Password">
+        <label>
+          <p>Password</p>
+          <input type="password" required v-model="password" placeholder="Password">
+          </label>
+        
 
         <div class="terms">
-          <input type="checkbox" v-model="terms" required>
-          <label>Endorse Quantum Era Covenants</label>
+          <label>
+            <input type="checkbox" v-model="terms" required>
+            <p>Endorse Quantum Era Covenants</p>
+          </label>
 
         </div>
 
@@ -16,7 +23,7 @@
           <button type="submit">Require Access</button>
         </div>
         <div v-if="passwordApproved" class="enterButton">
-<router-link :to="this.navigator">
+<router-link :to="this.navigator" class="linkButton">
   <button class="approvedButton">Enter Multivac Room</button>
 </router-link>
         </div>
@@ -93,7 +100,7 @@ form {
   border-radius: 10px;
 }
 
-label {
+label p {
   color: #aaa;
   display: inline-block;
   margin: 25px 0 15px;
@@ -129,6 +136,8 @@ button {
   margin: 20px 0px;
   color: white;
   border-radius: 20px;
+  cursor: pointer;
+
 }
 
 .submit {
@@ -152,9 +161,21 @@ p {
 }
 
 .approvedButton {
-  font-size: 30px;
+  font-size: 28px;
   background-color: black;
   color: #F8F48A;
+  cursor: pointer;
+  margin: 0;
+}
+
+.approvedButton:hover {
+  background-color: #F8F48A;
+  color: black;
+  border: 1px black solid;
+}
+
+.linkButton {
+  margin: 20px 0;
 }
 
 </style>

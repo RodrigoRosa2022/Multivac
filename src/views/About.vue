@@ -1,8 +1,10 @@
 <template>
 <NavBar />
   <div class="about">
-    <h1>This is an about page</h1>
-    <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam, voluptatibus?</div>
+    <h1>About</h1>
+    <div>I remember a software that run in Windows-DOS back in the 90's that used this same trick. It was called Mãe Diná or something like this, evoking paranormal/mistic powers.<br>
+    My cousin tricked me and I, as a child, got very intriged.<br><br>
+    My idea was to replicate the trick, but set in another background style (retrofuturistic with Isaac Asimov and Douglas Adams references).</div>
   </div>
   <Footer />
 </template>
@@ -18,6 +20,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.about {  
+  flex-grow: 1;
+  margin-left: 30px;
+}
 </style>
