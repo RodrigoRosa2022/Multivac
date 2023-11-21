@@ -2,7 +2,7 @@
   <label class="screen" for="typer">
     <div id="term">
       <!-- <label> -->
-        <p class="userTyping">&lt;{{ user }}&gt; {{ fakeText }}</p>
+        <p class="userTyping">&lt;{{ user }}&gt; {{ fakeText }} </p>
         <input type="text" id="typer" v-model="typedText"  autofocus @input="keyPress(typedText)" @keyup.enter="enterPressed(typedText)">
         <div v-if="isTypingEnded">
           <p>&lt;Multivac&gt; {{ mvAnswer }}</p>
@@ -173,6 +173,7 @@ input {
   width: 1px;
   box-decoration-break: none;
   opacity: 0;
+  padding: 0;
 }
 
 p {
@@ -199,5 +200,18 @@ p.userTyping::after {
     opacity: 1;
   }
 }
+
+
+@media (max-width: 800px) {
+  
+      .screen {
+        height: 250px;
+        margin: 15px;
+      }
+
+    .userTyping {
+      margin: 5px 7px;
+    }
+  }
 
 </style>

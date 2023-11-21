@@ -8,7 +8,7 @@
       <h1>The Multivac</h1>
       <p>The Retrofuturistic Oracle with an Infinite Improbability Twist.</p>
       
-      <img src="../assets/multivac.jpg" alt="Multivac Terminal" height="400">
+      <img src="../assets/multivac.jpg" alt="Multivac Terminal">
       <button @click="UserModal">Play</button>
     </div>
   </div>
@@ -77,8 +77,10 @@ p {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 72%;
+  height: 400px;
 }
+
+
 
 button {
   background-color: #F8F48A;
@@ -93,8 +95,24 @@ button {
 
 button:hover{
   background-color: black;
-  color:#F8F48A
+  color:#F8F48A;
 }
+
+
+  @media (max-width: 450px) {
+
+    .logo img {
+      width: 90%;
+      height: auto;
+      }
+    
+    h1 {
+    font-size: 40px;
+    margin: 10px;
+    }
+
+  }
+  
 
 </style>
 

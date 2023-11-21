@@ -12,9 +12,9 @@
         
 
         <div class="terms">
-          <label>
+          <label class="checkBox">
             <input type="checkbox" v-model="terms" required>
-            <p>Endorse Quantum Era Covenants</p>
+            <p>Enable Positronic Accordance for Cognitive Synergy</p>
           </label>
 
         </div>
@@ -98,6 +98,16 @@ form {
   text-align: left;
   padding: 40px;
   border-radius: 10px;
+}
+
+
+.checkBox {
+  display: flex;
+  align-items: center;
+}
+
+.checkBox input[type="checkbox"] {
+  margin-right: 10px;
 }
 
 label p {

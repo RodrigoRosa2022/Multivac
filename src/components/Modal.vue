@@ -38,7 +38,6 @@ export default {
   margin: 100px auto;
   background: white;
   border-radius: 40px;
-
 }
 
 .backdrop {
@@ -55,6 +54,19 @@ p {
   padding: 0;
   font-style: normal;
 }
+
+  @media (max-width: 450px) {
+
+    .modal {
+      width: 85%;
+      padding: 0px;
+      margin: 100px auto;
+
+    }
+
+  
+  }
+
 
 
 </style>

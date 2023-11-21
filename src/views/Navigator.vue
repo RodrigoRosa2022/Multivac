@@ -41,6 +41,7 @@ export default {
 .homeNavigator {
   gap: 16px;
   height: 80%;
+  width: 95%;
 }
 
 h1 {
@@ -67,14 +68,48 @@ img.imageNavigator {
   /* display: block; */
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
-  height: 5%;
+  width: 350px;
+  height: 350px;
 }
 
 .mainNavigator {
   display: flex;
   flex-direction: row;
+  align-content: center;
+  width: 95%;
 }
+
+
+
+
+@media (max-width: 800px) {
+
+      .mainNavigator {
+        flex-direction: column-reverse;
+      }
+
+      .screen {
+        width: 90%;
+      }
+
+          img.imageNavigator {
+            width: 230px;
+            height: 230px;
+          }
+      
+      h1 {
+        font-size: 50px;
+      }
+
+    }
+
+      @media (max-width: 450px) {    
+    h1 {
+    font-size: 40px;
+    margin: 10px;
+    }
+
+  }
 
 </style>
 
