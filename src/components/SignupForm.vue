@@ -188,4 +188,29 @@ p {
   margin: 20px 0;
 }
 
+    @media (max-height: 620px) {
+      form {
+  margin: 10px auto;
+  padding: 10px 15px;
+}
+    }
+
+    @media (max-height: 560px) {
+      form {
+  margin: 10px auto;
+  padding: 0px 15px;
+}
+    }
+
+  @media (max-height: 490px) {
+    .approvedButton {
+  font-size: 14px;
+}
+.linkButton {
+  margin: 5px 0;
+}
+
+
+  }
+
 </style>

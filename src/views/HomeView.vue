@@ -2,7 +2,15 @@
   <div v-if="showModal">
     <Modal :header="header" :text="text" @close="UserModal" />
   </div>
-  <NavBar />
+  <div class="navExtended">
+    <NavBar />
+    <div class="languages">
+      <img src="../assets/portugueseflag.png" alt="Brazilian Flag" @click="Portuguese()">
+      <img src="../assets/englishflag.png" alt="USA Flag" @click="English()">
+    </div>
+
+  </div>
+
   <div class="home">
     <div class="logo">
       <h1>The Multivac</h1>
@@ -29,12 +37,21 @@ export default {
   },
   data() {
     return {
-      showModal: false
+      showModal: false,
+      language: "english"
     }
   },
   methods: {
   UserModal() {
     this.showModal = !this.showModal
+  },
+  Portuguese() {
+    this.language = "portuguese"
+    console.log(this.language)
+  },
+  English() {
+    this.language = "english"
+    console.log(this.language)
   }
 
     }
@@ -50,6 +67,22 @@ export default {
   gap: 16px;
   flex-grow: 1;
   height: 80%;
+}
+
+.navExtended {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.languages {
+  padding: 10px;
+}
+
+.languages img{
+  margin: 0 10px;
+  height: 30px;
+  cursor: pointer;
 }
 
 h1 {

@@ -1,6 +1,5 @@
  <template>
   <NavBar />
-  <!-- <p>The navigator name is: {{$route.params.navigator}}</p> -->
   <div class="homeNavigator">
     <div class="logo">
       <h1>The Multivac</h1>
@@ -42,6 +41,8 @@ export default {
   gap: 16px;
   height: 80%;
   width: 95%;
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 h1 {

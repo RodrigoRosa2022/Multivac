@@ -12,7 +12,7 @@
   -moz-osx-font-smoothing: grayscale;
   background: #03051C;
   color: #F8F48A;
-  height: 100%;
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
@@ -21,7 +21,6 @@
 body {
   margin: 0px;
 
-  height: 100%;
 
   /* overflow: hidden; */
 }

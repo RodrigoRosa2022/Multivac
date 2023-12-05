@@ -56,15 +56,21 @@ p {
 }
 
   @media (max-width: 450px) {
-
     .modal {
       width: 85%;
       padding: 0px;
       margin: 100px auto;
 
     }
+  }
 
-  
+    @media (max-height: 550px) {
+    .modal {
+      width: 85%;
+      padding: 0px;
+      margin: 10px auto;      
+      padding: 5px;
+    }
   }
 
 
