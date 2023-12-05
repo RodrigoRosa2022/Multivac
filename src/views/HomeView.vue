@@ -110,7 +110,7 @@ p {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 400px;
+  height: 350px;
 }
 
 

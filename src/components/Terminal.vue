@@ -1,7 +1,9 @@
 <template>
-  <label class="screen" for="typer">
+
+<!-- v-if="isMobile" -->
+  <p class="advert" v-if="isMobile">Multivac terminal is currently not working on mobile devices.<br>Please consider accessing through a desktop.</p>
+  <label class="screen" for="typer" v-if="!isMobile">
     <div id="term">
-      <!-- <label> -->
         <p class="userTyping">&lt;{{ user }}&gt; {{ fakeText }} </p>
         <input type="text" id="typer" v-model="typedText"  autofocus @input="keyPress(typedText)" @keyup.enter="enterPressed(typedText)">
         <div v-if="isTypingEnded">
@@ -11,7 +13,6 @@
             <button v-if="!isWrongAnswer" @click="resetTerminal">New Question</button>
           </div>
         </div>
-      <!-- </label> -->
     </div>
   </label>
 </template>
@@ -29,7 +30,8 @@ export default {
       isWrongAnswer: false,
       isAnswerSaved: false,
       isTypingEnded: false,
-      mvAnswer: null
+      mvAnswer: null,
+      isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     }
   },
   methods: {
@@ -162,6 +164,10 @@ export default {
   box-shadow: 0 0 10px black;
 }
 
+.advert {
+  margin: 30px;
+}
+
 #term {
   width: 100%;
   height: 100%;
@@ -207,6 +213,7 @@ p.userTyping::after {
       .screen {
         height: 250px;
         margin: 15px;
+        width: 90%;
       }
 
     .userTyping {
