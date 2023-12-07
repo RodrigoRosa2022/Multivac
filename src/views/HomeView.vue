@@ -3,7 +3,7 @@
     <Modal :header="header" :text="text" @close="UserModal" />
   </div>
   <div class="navExtended">
-    <NavBar />
+    <NavBar :language="language"/>
     <div class="languages">
       <img src="../assets/portugueseflag.png" alt="Brazilian Flag" @click="Portuguese()">
       <img src="../assets/englishflag.png" alt="USA Flag" @click="English()">
@@ -13,11 +13,11 @@
 
   <div class="home">
     <div class="logo">
-      <h1>The Multivac</h1>
-      <p>The Retrofuturistic Oracle with an Infinite Improbability Twist.</p>
+      <h1>{{title}}</h1>
+      <p>{{motto}}</p>
       
       <img src="../assets/multivac.jpg" alt="Multivac Terminal">
-      <button @click="UserModal">Play</button>
+      <button @click="UserModal">{{playButton}}</button>
     </div>
   </div>
   <Footer />
@@ -38,7 +38,10 @@ export default {
   data() {
     return {
       showModal: false,
-      language: "english"
+      language: "english",
+      title: "The Multivac",
+      motto: "The Retrofuturistic Oracle with an Infinite Improbability Twist.",
+      playButton: "Play"
     }
   },
   methods: {
@@ -48,10 +51,16 @@ export default {
   Portuguese() {
     this.language = "portuguese"
     console.log(this.language)
+    this.title="O Multivac"
+    this.motto="O Oráculo Retrô-futurista com um Toque de Improbabilidade Infinita"
+    this.playButton="Acessar"
   },
   English() {
     this.language = "english"
     console.log(this.language)
+    this.title="The Multivac"
+    this.motto="The Retrofuturistic Oracle with an Infinite Improbability Twist."
+    this.playButton="Play"
   }
 
     }
